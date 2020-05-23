@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class AbstractEntity {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     public int getId() {
         return id;
