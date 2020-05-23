@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="maker" value="#{clientController.all}" border="1">
+    <h:dataTable var="maker" value="#{makerController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
@@ -18,12 +18,6 @@
                 <h:outputText value="name"/>
             </f:facet>
             <h:inputText value="#{maker.name}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="room"/>
-            </f:facet>
-            <h:inputText value="#{maker.room}"/>
         </h:column>
     </h:dataTable>
 </h:body>
