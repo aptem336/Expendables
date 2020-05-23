@@ -6,36 +6,36 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="maker" value="#{expendableController.all}" border="1">
+    <h:dataTable var="expendable" value="#{expendableController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:inputText value="#{maker.id}"/>
+            <h:inputText value="#{expendable.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="maker"/>
+                <h:outputText value="expendable"/>
             </f:facet>
-            <h:inputText value="#{maker.maker}"/>
+            <h:inputText value="#{expendable.maker}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:inputText value="#{maker.expendableType}"/>
+            <h:inputText value="#{expendable.expendableType}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="printer"/>
             </f:facet>
-            <h:inputText value="#{maker.printer}"/>
+            <h:inputText value="#{expendable.printer}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="model"/>
             </f:facet>
-            <h:inputText value="#{maker.model}"/>
+            <h:inputText value="#{expendable.model}"/>
         </h:column>
     </h:dataTable>
 </h:body>

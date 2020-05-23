@@ -6,24 +6,24 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="maker" value="#{printerController.all}" border="1">
+    <h:dataTable var="printer" value="#{printerController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:inputText value="#{maker.id}"/>
+            <h:inputText value="#{printer.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="maker"/>
+                <h:outputText value="printer"/>
             </f:facet>
-            <h:inputText value="#{maker.maker}"/>
+            <h:inputText value="#{printer.maker}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="model"/>
             </f:facet>
-            <h:inputText value="#{maker.model}"/>
+            <h:inputText value="#{printer.model}"/>
         </h:column>
     </h:dataTable>
 </h:body>
