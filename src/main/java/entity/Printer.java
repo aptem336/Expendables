@@ -2,10 +2,9 @@ package entity;
 
 import controller.PrinterController;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @NamedQuery(name = PrinterController.getAllNamedQuery, query = "SELECT p FROM Printer p")
@@ -15,6 +14,8 @@ public class Printer extends AbstractEntity {
     private Maker maker;
     @NotNull
     private String model;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "printer", orphanRemoval = true)
+    private List<Expendable> expendables;
 
     public Maker getMaker() {
         return maker;
@@ -30,5 +31,13 @@ public class Printer extends AbstractEntity {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public List<Expendable> getExpendables() {
+        return expendables;
+    }
+
+    public void setExpendables(List<Expendable> expendables) {
+        this.expendables = expendables;
     }
 }

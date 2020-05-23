@@ -6,18 +6,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="printer" value="#{makerController.all}" border="1">
+    <h:dataTable var="maker" value="#{makerController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:inputText value="#{printer.id}"/>
+            <h:inputText value="#{maker.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="name"/>
             </f:facet>
-            <h:inputText value="#{printer.name}"/>
+            <h:inputText value="#{maker.name}"/>
         </h:column>
     </h:dataTable>
 </h:body>

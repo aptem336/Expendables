@@ -16,6 +16,8 @@ public class Maker extends AbstractEntity {
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maker", orphanRemoval = true)
     private List<Printer> printers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "maker", orphanRemoval = true)
+    private List<Expendable> expendables;
 
     public String getName() {
         return name;
@@ -31,5 +33,13 @@ public class Maker extends AbstractEntity {
 
     public void setPrinters(List<Printer> printers) {
         this.printers = printers;
+    }
+
+    public List<Expendable> getExpendables() {
+        return expendables;
+    }
+
+    public void setExpendables(List<Expendable> expendables) {
+        this.expendables = expendables;
     }
 }
