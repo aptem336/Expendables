@@ -15,9 +15,9 @@
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="expendable"/>
+                <h:outputText value="maker"/>
             </f:facet>
-            <h:inputText value="#{expendable.maker}"/>
+            <h:inputText value="#{expendable.maker}" converter="#{makerController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
