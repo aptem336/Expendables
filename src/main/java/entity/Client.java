@@ -1,12 +1,12 @@
 package entity;
 
-import helper.ClientPersistenceHelper;
+import controller.ClientController;
 
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = ClientPersistenceHelper.getAllNamedQuery, query = "SELECT c FROM Client c")
+@NamedQuery(name = ClientController.getAllNamedQuery, query = "SELECT c FROM Client c")
 public class Client extends AbstractEntity {
     private String name;
     private Integer room;

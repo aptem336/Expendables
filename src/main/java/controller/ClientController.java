@@ -1,20 +1,20 @@
 package controller;
 
 import entity.Client;
-import helper.ClientPersistenceHelper;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@Named
 public class ClientController implements Controller<Client> {
-    @Inject
-    private ClientPersistenceHelper helper;
+    public static final String getAllNamedQuery = "getAll";
     @Inject
     private EntityManager em;
 
     @Override
     public List<Client> getAll() {
-        return em.createNamedQuery(helper.getAllNamedQuery(), Client.class).getResultList();
+        return em.createNamedQuery(getAllNamedQuery, Client.class).getResultList();
     }
 }
