@@ -9,7 +9,7 @@ import java.util.List;
 
 @Named
 public class ClientController implements Controller<Client> {
-    public static final String getAllNamedQuery = "getAll";
+    public static final String getAllNamedQuery = "getAllClients";
     @Inject
     private EntityManager em;
 
