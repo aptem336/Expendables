@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
+    <h:dataTable var="client" value="#{clientController.all}" border="1">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="id"/>
+            </f:facet>
+            <h:inputText value="#{client.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="name"/>
+            </f:facet>
+            <h:inputText value="#{client.name}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="room"/>
+            </f:facet>
+            <h:inputText value="#{client.room}"/>
+        </h:column>
+    </h:dataTable>
+</h:body>
 </html>
