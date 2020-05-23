@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="printer" value="#{makerController.all}" border="1">
+    <h:dataTable var="printer" value="#{printerController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
@@ -15,9 +15,15 @@
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="name"/>
+                <h:outputText value="maker"/>
             </f:facet>
-            <h:inputText value="#{printer.name}"/>
+            <h:inputText value="#{printer.maker}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="model"/>
+            </f:facet>
+            <h:inputText value="#{printer.model}"/>
         </h:column>
     </h:dataTable>
 </h:body>

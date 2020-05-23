@@ -9,7 +9,7 @@ import java.util.List;
 
 @Named
 public class TransactionTypeController implements Controller<TransactionType> {
-    public static final String getAllNamedQuery = "getAllMakers";
+    public static final String getAllNamedQuery = "getAlTransactionTypes";
     @Inject
     private EntityManager em;
 
