@@ -15,9 +15,9 @@
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="printer"/>
+                <h:outputText value="maker"/>
             </f:facet>
-            <h:inputText value="#{printer.maker}"/>
+            <h:inputText value="#{printer.maker}" converter="#{makerController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">

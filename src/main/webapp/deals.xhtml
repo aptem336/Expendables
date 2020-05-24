@@ -17,19 +17,19 @@
             <f:facet name="header">
                 <h:outputText value="expendable"/>
             </f:facet>
-            <h:inputText value="#{transaction.expendable}"/>
+            <h:inputText value="#{transaction.expendable}" converter="#{expendableController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="supplier"/>
             </f:facet>
-            <h:inputText value="#{transaction.supplier}"/>
+            <h:inputText value="#{transaction.supplier}" converter="#{clientController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="acceptor"/>
             </f:facet>
-            <h:inputText value="#{transaction.acceptor}"/>
+            <h:inputText value="#{transaction.acceptor}" converter="#{clientController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
@@ -41,7 +41,7 @@
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:inputText value="#{transaction.transactionType}"/>
+            <h:inputText value="#{transaction.transactionType}" converter="#{transactionTypeController}"/>
         </h:column>
     </h:dataTable>
 </h:body>
