@@ -2,6 +2,8 @@ package controller;
 
 import entity.Client;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -16,5 +18,15 @@ public class ClientController implements Controller<Client> {
     @Override
     public List<Client> getAll() {
         return em.createNamedQuery(getAllNamedQuery, Client.class).getResultList();
+    }
+
+    @Override
+    public Client getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
+        return null;
+    }
+
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Client client) {
+        return client.getName();
     }
 }

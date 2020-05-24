@@ -2,6 +2,8 @@ package controller;
 
 import entity.Printer;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -16,5 +18,15 @@ public class PrinterController implements Controller<Printer> {
     @Override
     public List<Printer> getAll() {
         return em.createNamedQuery(getAllNamedQuery, Printer.class).getResultList();
+    }
+
+    @Override
+    public Printer getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
+        return null;
+    }
+
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Printer printer) {
+        return printer.getModel();
     }
 }

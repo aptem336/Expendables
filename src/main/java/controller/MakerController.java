@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class MakerController implements Controller<Maker>, Converter<Maker> {
+public class MakerController implements Controller<Maker> {
     public static final String getAllNamedQuery = "getAllMakers";
     @Inject
     private EntityManager em;

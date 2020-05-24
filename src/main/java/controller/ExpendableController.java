@@ -2,6 +2,8 @@ package controller;
 
 import entity.Expendable;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -16,5 +18,15 @@ public class ExpendableController implements Controller<Expendable> {
     @Override
     public List<Expendable> getAll() {
         return em.createNamedQuery(getAllNamedQuery, Expendable.class).getResultList();
+    }
+
+    @Override
+    public Expendable getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
+        return null;
+    }
+
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent uiComponent, Expendable expendable) {
+        return expendable.getModel();
     }
 }
