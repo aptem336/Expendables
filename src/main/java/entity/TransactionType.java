@@ -15,7 +15,7 @@ public class TransactionType extends AbstractEntity {
     @NotNull
     private String type;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "transactionType", orphanRemoval = true)
-    private List<Transaction> transactions;
+    private List<Deal> deals;
 
     public String getType() {
         return type;
@@ -25,11 +25,11 @@ public class TransactionType extends AbstractEntity {
         this.type = type;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<Deal> getDeals() {
+        return deals;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public void setDeals(List<Deal> deals) {
+        this.deals = deals;
     }
 }

@@ -17,9 +17,9 @@ public class Client extends AbstractEntity {
     @NotNull
     private Integer room;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "acceptor")
-    private List<Transaction> transactionsAccept;
+    private List<Deal> transactionsAccept;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "supplier")
-    private List<Transaction> transactionsSupply;
+    private List<Deal> transactionsSupply;
 
     public String getName() {
         return name;
@@ -37,19 +37,19 @@ public class Client extends AbstractEntity {
         this.room = room;
     }
 
-    public List<Transaction> getTransactionsAccept() {
+    public List<Deal> getTransactionsAccept() {
         return transactionsAccept;
     }
 
-    public void setTransactionsAccept(List<Transaction> transactionsAccept) {
+    public void setTransactionsAccept(List<Deal> transactionsAccept) {
         this.transactionsAccept = transactionsAccept;
     }
 
-    public List<Transaction> getTransactionsSupply() {
+    public List<Deal> getTransactionsSupply() {
         return transactionsSupply;
     }
 
-    public void setTransactionsSupply(List<Transaction> transactionsSupply) {
+    public void setTransactionsSupply(List<Deal> transactionsSupply) {
         this.transactionsSupply = transactionsSupply;
     }
 }

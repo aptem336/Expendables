@@ -21,7 +21,7 @@ public class Expendable extends AbstractEntity {
     @NotNull
     private String model;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "expendable", orphanRemoval = true)
-    private List<Transaction> transactions;
+    private List<Deal> deals;
 
     public Maker getMaker() {
         return maker;
@@ -55,11 +55,11 @@ public class Expendable extends AbstractEntity {
         this.model = model;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<Deal> getDeals() {
+        return deals;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public void setDeals(List<Deal> deals) {
+        this.deals = deals;
     }
 }

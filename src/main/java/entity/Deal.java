@@ -8,8 +8,8 @@ import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@NamedQuery(name = TransactionController.getAllNamedQuery, query = "SELECT t FROM Transaction t")
-public class Transaction extends AbstractEntity {
+@NamedQuery(name = TransactionController.getAllNamedQuery, query = "SELECT t FROM Deal t")
+public class Deal extends AbstractEntity {
     @NotNull
     @ManyToOne
     private Expendable expendable;
