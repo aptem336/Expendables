@@ -11,37 +11,37 @@
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:inputText value="#{transaction.id}"/>
+            <h:outputText value="#{transaction.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="expendable"/>
             </f:facet>
-            <h:inputText value="#{transaction.expendable}" converter="#{expendableController}"/>
+            <h:outputText value="#{transaction.expendable}" converter="#{expendableController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="supplier"/>
             </f:facet>
-            <h:inputText value="#{transaction.supplier}" converter="#{clientController}"/>
+            <h:outputText value="#{transaction.supplier}" converter="#{clientController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="acceptor"/>
             </f:facet>
-            <h:inputText value="#{transaction.acceptor}" converter="#{clientController}"/>
+            <h:outputText value="#{transaction.acceptor}" converter="#{clientController}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="amount"/>
             </f:facet>
-            <h:inputText value="#{transaction.amount}"/>
+            <h:outputText value="#{transaction.amount}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:inputText value="#{transaction.dealType}" converter="#{dealTypeController}"/>
+            <h:outputText value="#{transaction.dealType}" converter="#{dealTypeController}"/>
         </h:column>
     </h:dataTable>
 </h:body>

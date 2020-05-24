@@ -62,4 +62,10 @@ public class Expendable extends PersistenceModel {
     public void setDeals(List<Deal> deals) {
         this.deals = deals;
     }
+
+    @Transient
+    public Integer getBalance() {
+        return getDeals().stream().mapToInt(deal ->
+                deal.getAmount() * deal.getDealType().getId() == 0 ? 1 : -1).sum();
+    }
 }

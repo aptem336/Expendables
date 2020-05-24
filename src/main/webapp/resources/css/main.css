@@ -6,6 +6,11 @@ body {
 hr {
     border-width: 2px;
 }
-div#balance {
+#balance-block {
     text-align: center;
+}
+#balance-table {
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
 }
