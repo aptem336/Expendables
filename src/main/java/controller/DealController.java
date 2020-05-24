@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class TransactionController implements Controller<Deal> {
+public class DealController implements Controller<Deal> {
     public static final String getAllNamedQuery = "getAllDeals";
     @Inject
     private EntityManager em;

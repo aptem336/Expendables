@@ -1,6 +1,6 @@
 package entity;
 
-import controller.TransactionController;
+import controller.DealController;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@NamedQuery(name = TransactionController.getAllNamedQuery, query = "SELECT t FROM Deal t")
+@NamedQuery(name = DealController.getAllNamedQuery, query = "SELECT t FROM Deal t")
 public class Deal extends AbstractEntity {
     @NotNull
     @ManyToOne
@@ -23,7 +23,7 @@ public class Deal extends AbstractEntity {
     private Integer amount;
     @NotNull
     @ManyToOne
-    private TransactionType transactionType;
+    private DealType dealType;
 
     public Expendable getExpendable() {
         return expendable;
@@ -57,11 +57,11 @@ public class Deal extends AbstractEntity {
         this.amount = amount;
     }
 
-    public TransactionType getTransactionType() {
-        return transactionType;
+    public DealType getDealType() {
+        return dealType;
     }
 
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
+    public void setDealType(DealType dealType) {
+        this.dealType = dealType;
     }
 }

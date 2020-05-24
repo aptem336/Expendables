@@ -6,18 +6,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="transactionType" value="#{transactionTypeController.all}" border="1">
+    <h:dataTable var="dealType" value="#{dealTypeController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:inputText value="#{transactionType.id}"/>
+            <h:inputText value="#{dealType.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:inputText value="#{transactionType.type}"/>
+            <h:inputText value="#{dealType.type}"/>
         </h:column>
     </h:dataTable>
 </h:body>

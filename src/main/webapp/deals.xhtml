@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="transaction" value="#{transactionController.all}" border="1">
+    <h:dataTable var="transaction" value="#{dealController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
@@ -41,7 +41,7 @@
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:inputText value="#{transaction.transactionType}" converter="#{transactionTypeController}"/>
+            <h:inputText value="#{transaction.dealType}" converter="#{dealTypeController}"/>
         </h:column>
     </h:dataTable>
 </h:body>

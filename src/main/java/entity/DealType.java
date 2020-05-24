@@ -1,6 +1,6 @@
 package entity;
 
-import controller.TransactionTypeController;
+import controller.DealTypeController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,11 +10,11 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = TransactionTypeController.getAllNamedQuery, query = "SELECT t FROM TransactionType t")
-public class TransactionType extends AbstractEntity {
+@NamedQuery(name = DealTypeController.getAllNamedQuery, query = "SELECT t FROM DealType t")
+public class DealType extends AbstractEntity {
     @NotNull
     private String type;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "transactionType", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dealType", orphanRemoval = true)
     private List<Deal> deals;
 
     public String getType() {
