@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.ClientController;
+import persistence.controller.ClientController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = ClientController.getAllNamedQuery, query = "SELECT c FROM Client c")
-public class Client extends AbstractEntity {
+public class Client extends PersistenceModel {
     @NotNull
     private String name;
     @NotNull

@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.ExpendableController;
+import persistence.controller.ExpendableController;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = ExpendableController.getAllNamedQuery, query = "SELECT e FROM Expendable e")
-public class Expendable extends AbstractEntity {
+public class Expendable extends PersistenceModel {
     @NotNull
     @ManyToOne
     private Maker maker;

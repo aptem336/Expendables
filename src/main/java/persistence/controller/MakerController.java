@@ -1,17 +1,16 @@
-package controller;
+package persistence.controller;
 
-import entity.Maker;
+import persistence.model.Maker;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class MakerController implements Controller<Maker> {
+public class MakerController implements PersistenceController<Maker> {
     public static final String getAllNamedQuery = "getAllMakers";
     @Inject
     private EntityManager em;

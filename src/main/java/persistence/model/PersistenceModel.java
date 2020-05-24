@@ -1,10 +1,10 @@
-package entity;
+package persistence.model;
 
 import javax.persistence.*;
 
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
-public class AbstractEntity {
+public abstract class PersistenceModel {
     @Id
     @GeneratedValue
     private Integer id;

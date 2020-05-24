@@ -1,6 +1,6 @@
-package controller;
+package persistence.controller;
 
-import entity.Client;
+import persistence.model.Client;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class ClientController implements Controller<Client> {
+public class ClientController implements PersistenceController<Client> {
     public static final String getAllNamedQuery = "getAllClients";
     @Inject
     private EntityManager em;

@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.DealController;
+import persistence.controller.DealController;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQuery(name = DealController.getAllNamedQuery, query = "SELECT t FROM Deal t")
-public class Deal extends AbstractEntity {
+public class Deal extends PersistenceModel {
     @NotNull
     @ManyToOne
     private Expendable expendable;

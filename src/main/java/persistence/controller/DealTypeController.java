@@ -1,6 +1,6 @@
-package controller;
+package persistence.controller;
 
-import entity.DealType;
+import persistence.model.DealType;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class DealTypeController implements Controller<DealType> {
+public class DealTypeController implements PersistenceController<DealType> {
     public static final String getAllNamedQuery = "getAlTransactionTypes";
     @Inject
     private EntityManager em;

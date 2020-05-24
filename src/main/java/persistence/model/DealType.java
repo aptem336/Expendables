@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.DealTypeController;
+import persistence.controller.DealTypeController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = DealTypeController.getAllNamedQuery, query = "SELECT t FROM DealType t")
-public class DealType extends AbstractEntity {
+public class DealType extends PersistenceModel {
     @NotNull
     private String type;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dealType", orphanRemoval = true)

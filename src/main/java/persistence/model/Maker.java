@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.MakerController;
+import persistence.controller.MakerController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = MakerController.getAllNamedQuery, query = "SELECT m FROM Maker m")
-public class Maker extends AbstractEntity {
+public class Maker extends PersistenceModel {
     @NotNull
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maker", orphanRemoval = true)

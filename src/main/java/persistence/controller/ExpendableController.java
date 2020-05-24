@@ -1,6 +1,6 @@
-package controller;
+package persistence.controller;
 
-import entity.Expendable;
+import persistence.model.Expendable;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class ExpendableController implements Controller<Expendable> {
+public class ExpendableController implements PersistenceController<Expendable> {
     public static final String getAllNamedQuery = "getAllExpendables";
     @Inject
     private EntityManager em;

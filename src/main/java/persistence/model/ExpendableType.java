@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.ExpendableTypeController;
+import persistence.controller.ExpendableTypeController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = ExpendableTypeController.getAllNamedQuery, query = "SELECT e FROM ExpendableType e")
-public class ExpendableType extends AbstractEntity {
+public class ExpendableType extends PersistenceModel {
     @NotNull
     private String type;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "expendableType", orphanRemoval = true)

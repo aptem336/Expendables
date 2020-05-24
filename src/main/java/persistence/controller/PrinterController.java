@@ -1,6 +1,6 @@
-package controller;
+package persistence.controller;
 
-import entity.Printer;
+import persistence.model.Printer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Named
-public class PrinterController implements Controller<Printer> {
+public class PrinterController implements PersistenceController<Printer> {
     public static final String getAllNamedQuery = "getAllPrinters";
     @Inject
     private EntityManager em;

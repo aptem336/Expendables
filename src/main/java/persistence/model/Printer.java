@@ -1,6 +1,6 @@
-package entity;
+package persistence.model;
 
-import controller.PrinterController;
+import persistence.controller.PrinterController;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = PrinterController.getAllNamedQuery, query = "SELECT p FROM Printer p")
-public class Printer extends AbstractEntity {
+public class Printer extends PersistenceModel {
     @NotNull
     @ManyToOne
     private Maker maker;

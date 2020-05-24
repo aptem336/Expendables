@@ -1,0 +1,11 @@
+body {
+    font-family: Calibri, serif;
+    overflow: hidden;
+    font-size: 18px;
+}
+hr {
+    border-width: 2px;
+}
+div#balance {
+    text-align: center;
+}
