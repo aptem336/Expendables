@@ -33,4 +33,8 @@ public class DealActionController implements ActionController, Serializable {
     public void setDealActionModel(DealActionModel dealActionModel) {
         this.dealActionModel = dealActionModel;
     }
+
+    public String save() {
+        return "null";
+    }
 }

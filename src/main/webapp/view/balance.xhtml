@@ -39,8 +39,8 @@
             </h:column>
         </h:dataTable>
         <h:form>
-            <h:commandButton value="Выдача расходных материалов" action="#{dealActionController.toOutComing()}"/>
-            <h:commandButton value="Принятие расходных материалов" action="#{dealActionController.toInComing()}"/>
+            <h:button value="Выдача расходных материалов" outcome="#{dealActionController.toOutComing()}"/>
+            <h:button value="Принятие расходных материалов" outcome="#{dealActionController.toInComing()}"/>
             <br/>
             <h:commandButton value="Поиск по складу"/>
             <h:commandButton value="Поиск по транзакциям"/>

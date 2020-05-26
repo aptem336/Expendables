@@ -11,3 +11,7 @@ table {
     border: 1px solid black;
     margin: auto;
 }
+
+select {
+    width: 100%;
+}

@@ -2,7 +2,6 @@ package model.action;
 
 import model.persistence.*;
 
-import javax.validation.constraints.Max;
 import java.util.Date;
 
 public class DealActionModel implements ActionModel {
@@ -12,7 +11,6 @@ public class DealActionModel implements ActionModel {
     private Maker dealMaker;
     private Printer dealPrinter;
     private Expendable dealExpendable;
-    @Max(value = 3)
     private Integer dealAmount;
 
     public DealType getDealType() {

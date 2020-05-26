@@ -1,6 +1,7 @@
 package controller.persistence;
 
 import model.persistence.Expendable;
+import model.persistence.Printer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -21,12 +22,16 @@ public class ExpendableController implements PersistenceController<Expendable> {
     }
 
     @Override
-    public Expendable getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
-        return null;
+    public Expendable getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
+        try {
+            return em.find(Expendable.class, Integer.parseInt(id));
+        } catch (NumberFormatException ex) {
+            return null;
+        }
     }
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Expendable expendable) {
-        return expendable.getId() + "";
+        return expendable == null ? null : expendable.getId() + "";
     }
 }

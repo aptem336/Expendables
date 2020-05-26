@@ -21,12 +21,16 @@ public class PrinterController implements PersistenceController<Printer> {
     }
 
     @Override
-    public Printer getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
-        return null;
+    public Printer getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
+        try {
+            return em.find(Printer.class, Integer.parseInt(id));
+        } catch (NumberFormatException ex) {
+            return null;
+        }
     }
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Printer printer) {
-        return printer.getId() + "";
+        return printer == null ? null : printer.getId() + "";
     }
 }
