@@ -1,9 +1,9 @@
-package report.model;
+package model.view;
 
-import persistence.model.Expendable;
-import persistence.model.ExpendableType;
+import model.persistence.Expendable;
+import model.persistence.ExpendableType;
 
-public class Balance extends ReportModel {
+public class Balance extends ViewModel {
     private ExpendableType expendableType;
     private String printerModel;
     private String expendableModel;

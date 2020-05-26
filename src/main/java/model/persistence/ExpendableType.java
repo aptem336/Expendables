@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.ExpendableTypeController;
+import controller.persistence.ExpendableTypeController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.DealTypeController;
+import controller.persistence.DealTypeController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

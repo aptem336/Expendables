@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.DealController;
+import controller.persistence.DealController;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.MakerController;
+import controller.persistence.MakerController;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

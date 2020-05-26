@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.PrinterController;
+import controller.persistence.PrinterController;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

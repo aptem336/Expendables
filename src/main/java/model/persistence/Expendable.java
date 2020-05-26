@@ -1,6 +1,6 @@
-package persistence.model;
+package model.persistence;
 
-import persistence.controller.ExpendableController;
+import controller.persistence.ExpendableController;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -65,7 +65,6 @@ public class Expendable extends PersistenceModel {
 
     @Transient
     public Integer getBalance() {
-        return getDeals().stream().mapToInt(deal ->
-                deal.getAmount() * deal.getDealType().getId() == 0 ? 1 : -1).sum();
+        return getDeals().stream().mapToInt(deal -> deal.getAmount() * deal.getDealType().getId() == 0 ? 1 : -1).sum();
     }
 }

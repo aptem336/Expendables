@@ -1,6 +1,6 @@
-package persistence.controller;
+package controller.persistence;
 
-import persistence.model.PersistenceModel;
+import model.persistence.PersistenceModel;
 
 import javax.faces.convert.Converter;
 import java.util.List;

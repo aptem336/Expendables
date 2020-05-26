@@ -4,7 +4,7 @@ INSERT INTO ExpendableType (id, type) VALUES (1, 'голубой картрид�
 
 INSERT INTO Maker (id, name) VALUES (1, 'HP'), (2, 'Lexmark'), (3, 'Samsung'), (4, 'Xerox')
 
-INSERT INTO TransactionType (id, type) VALUES (1, 'Поступление'), (2, 'Расход')
+INSERT INTO DealType (id, type) VALUES (1, 'Поступление'), (2, 'Расход')
 
 INSERT INTO Printer (id, maker_id, model) VALUES (1, 2, 'E250'), (2, 2, 'E450'), (3, 2, 'E450'), (4, 2, 'E460'), (5, 2, 'E460'), (6, 2, 'MS510'), (7, 2, 'MS510'), (8, 2, 'MS811'), (9, 2, 'MS811'), (10, 2, 'MS812'), (11, 2, 'MS812'), (12, 2, 'MX310'), (13, 2, 'MX510'), (14, 2, 'MX711'), (15, 2, 'MX711'), (16, 2, 'T644'), (17, 2, 'T650'), (18, 2, 'T654 de'), (19, 2, 'T656'), (20, 2, 'W840'), (21, 2, 'W840'), (22, 2, 'W850'), (23, 2, 'W850'), (24, 2, 'X264dn'), (25, 2, 'X463'), (26, 2, 'X464'), (27, 2, 'X651de'), (28, 2, 'X658'), (29, 2, 'X748'), (30, 2, 'X748'), (31, 2, 'X748'), (32, 2, 'X748'), (33, 2, 'X748'), (34, 2, 'X862de'), (35, 2, 'X862de'), (36, 1, 'Deskjet 5943'), (37, 1, 'Deskjet 5943'), (38, 1, 'HP Officejet Mobile 100'), (39, 1, 'HP Officejet Mobile 100'), (40, 1, 'Laser Pro MER M125'), (41, 1, 'M1132 MFP'), (42, 3, 'ML-2160'), (43, 4, 'Phaser 7500dn'), (44, 4, 'Phaser 7500dn'), (45, 4, 'Phaser 7500dn'), (46, 4, 'Phaser 7500dn')
 
