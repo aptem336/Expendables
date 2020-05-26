@@ -78,7 +78,7 @@
 
         <h:panelGroup style="text-align: center; margin: 5px"
                       layout="block">
-            <h:commandButton value="Сохранить" action="#{dealActionController.save()}"/>
+            <h:commandButton immediate="true" value="Сохранить" action="#{dealActionController.save()}"/>
             <h:button value="Отменить" outcome="balance"/>
             <h:commandScript autorun="true" name="set_maker" execute="maker" render="printer"/>
             <h:commandScript autorun="true" name="set_printer" execute="printer" render="expendable"/>

@@ -35,6 +35,6 @@ public class DealActionController implements ActionController, Serializable {
     }
 
     public String save() {
-        return "null";
+        return "balance";
     }
 }
