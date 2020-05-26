@@ -18,14 +18,6 @@ public class DealActionController implements ActionController, Serializable {
         dealActionModel = new DealActionModel();
     }
 
-    public String toOutComing() {
-        return "outComingDeal";
-    }
-
-    public String toInComing() {
-        return "inComingDeal";
-    }
-
     public DealActionModel getDealActionModel() {
         return dealActionModel;
     }

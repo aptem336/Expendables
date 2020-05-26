@@ -11,11 +11,13 @@
     Выдача расходных материалов
     <hr/>
     <h:form>
+        <!--DEL-->
+        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
         <h:panelGrid columns="2">
             <h:outputText value="Дата выдачи"/>
             <h:inputText id="date"
                          value="#{dealActionController.dealActionModel.dealDate}">
-                <f:ajax render="date-message"/>
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
                 <f:passThroughAttribute name="type" value="date"/>
                 <f:passThroughAttribute name="required" value="true"/>
             </h:inputText>
@@ -68,20 +70,20 @@
             </h:selectOneMenu>
 
             <h:outputText value="Количество"/>
-            <h:selectOneMenu value="#{dealActionController.dealActionModel.dealExpendable}">
+            <h:selectOneMenu value="#{dealActionController.dealActionModel.dealAmount}">
                 <f:selectItem itemValue="1" itemLabel="1"/>
                 <f:selectItem itemValue="2" itemLabel="2"/>
                 <f:selectItem itemValue="3" itemLabel="3"/>
                 <f:passThroughAttribute name="required" value="true"/>
+                <f:convertNumber/>
             </h:selectOneMenu>
         </h:panelGrid>
+        <h:commandScript autorun="true" name="set_maker" execute="maker" render="printer"/>
+        <h:commandScript autorun="true" name="set_printer" execute="printer" render="expendable"/>
 
-        <h:panelGroup style="text-align: center; margin: 5px"
-                      layout="block">
-            <h:commandButton immediate="true" value="Сохранить" action="#{dealActionController.save()}"/>
+        <h:panelGroup style="text-align: center; margin: 5px" layout="block">
+            <h:commandButton value="Сохранить" action="#{dealActionController.save}"/>
             <h:button value="Отменить" outcome="balance"/>
-            <h:commandScript autorun="true" name="set_maker" execute="maker" render="printer"/>
-            <h:commandScript autorun="true" name="set_printer" execute="printer" render="expendable"/>
         </h:panelGroup>
     </h:form>
     <hr/>

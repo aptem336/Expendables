@@ -1,7 +1,6 @@
 package controller.persistence;
 
 import model.persistence.Maker;
-import model.persistence.Printer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -23,11 +22,7 @@ public class MakerController implements PersistenceController<Maker> {
 
     @Override
     public Maker getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
-        try {
-            return em.find(Maker.class, Integer.parseInt(id));
-        } catch (NumberFormatException ex) {
-            return null;
-        }
+        return em.find(Maker.class, Integer.parseInt(id));
     }
 
     @Override

@@ -8,10 +8,12 @@
         <navigation-case>
             <from-outcome>outComingDeal</from-outcome>
             <to-view-id>/actions/outComingDeal.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
         <navigation-case>
             <from-outcome>inComingDeal</from-outcome>
             <to-view-id>/actions/inComingDeal.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -19,6 +21,7 @@
         <navigation-case>
             <from-outcome>balance</from-outcome>
             <to-view-id>/view/balance.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -26,6 +29,7 @@
         <navigation-case>
             <from-outcome>balance</from-outcome>
             <to-view-id>/view/balance.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
 </faces-config>
