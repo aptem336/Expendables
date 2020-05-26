@@ -38,11 +38,13 @@
                 <h:outputText value="#{balance.balance}"/>
             </h:column>
         </h:dataTable>
-        <h:commandButton value="Выдача расходных материалов" action="#{}"/>
-        <h:commandButton value="Принятие расходных материалов"  action="#{}"/>
-        <br/>
-        <h:commandButton value="Поиск по складу"/>
-        <h:commandButton value="Поиск по транзакциям"/>
+        <h:form>
+            <h:commandButton value="Выдача расходных материалов" action="#{dealActionController.redirect()}"/>
+            <h:commandButton value="Принятие расходных материалов" action="#{dealActionController.redirect()}"/>
+            <br/>
+            <h:commandButton value="Поиск по складу"/>
+            <h:commandButton value="Поиск по транзакциям"/>
+        </h:form>
     </h:panelGroup>
     <hr/>
 </h:body>
