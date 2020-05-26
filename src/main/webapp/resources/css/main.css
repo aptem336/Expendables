@@ -2,14 +2,12 @@ body {
     font-family: Calibri, serif;
     font-size: 18px;
 }
+
 hr {
     border-width: 2px;
 }
-#balance-block {
-    text-align: center;
-}
-#balance-table {
+
+table {
     border: 1px solid black;
-    width: 50%;
     margin: auto;
 }

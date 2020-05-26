@@ -7,17 +7,17 @@
 <title>Расходные материалы "Сбербанк сервис"</title>
 <h:outputStylesheet library="css" name="main.css"/>
 <h:head/>
-<h:body>
+<f:view>
     Расходные материалы "Сбербанк сервис"
     <hr/>
-    <h:panelGroup layout="block" id="balance-block">
+    <h:panelGroup layout="block" style="text-align: center">
         <h3>Остаток расходных материалов по факту на складе</h3>
-        <h:dataTable var="balance" value="#{balanceController.data}" id="balance-table">
+        <h:dataTable var="balance" value="#{balanceController.data}">
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Тип"/>
                 </f:facet>
-                <h:outputText value="#{balance.expendableType}" converter="#{expendableTypeController}"/>
+                <h:outputText value="#{balance.expendableType.type}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
@@ -47,5 +47,5 @@
         </h:form>
     </h:panelGroup>
     <hr/>
-</h:body>
+</f:view>
 </html>
