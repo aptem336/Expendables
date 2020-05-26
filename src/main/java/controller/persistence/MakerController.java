@@ -21,8 +21,8 @@ public class MakerController implements PersistenceController<Maker> {
     }
 
     @Override
-    public Maker getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
-        return null;
+    public Maker getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
+        return getAll().stream().filter(maker -> maker.getId() == Integer.parseInt(id)).findFirst().orElse(null);
     }
 
     @Override

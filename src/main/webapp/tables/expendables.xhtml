@@ -17,19 +17,19 @@
             <f:facet name="header">
                 <h:outputText value="maker"/>
             </f:facet>
-            <h:outputText value="#{expendable.maker}" converter="#{makerController}"/>
+            <h:outputText value="#{expendable.maker.name}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="type"/>
             </f:facet>
-            <h:outputText value="#{expendable.expendableType}" converter="#{expendableTypeController}"/>
+            <h:outputText value="#{expendable.expendableType.type}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="printer"/>
             </f:facet>
-            <h:outputText value="#{expendable.printer}" converter="#{printerController}"/>
+            <h:outputText value="#{expendable.printer.model}"/>
         </h:column>
         <h:column>
             <f:facet name="header">

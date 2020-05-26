@@ -1,19 +1,22 @@
 package controller.action;
 
-import model.persistence.Client;
-import model.persistence.DealType;
+import model.action.DealActionModel;
 
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import javax.validation.constraints.Max;
-import java.util.Date;
+import java.io.Serializable;
 
 @Named
-public class DealActionController implements ActionController {
-    private DealType dealType;
-    private Date dealDate;
-    private Client dealClient;
-    @Max(value = 3)
-    private Integer dealAmount;
+@ViewScoped
+public class DealActionController implements ActionController, Serializable {
+
+    private DealActionModel dealActionModel;
+
+    @PostConstruct
+    private void postConstruct() {
+        dealActionModel = new DealActionModel();
+    }
 
     public String toOutComing() {
         return "outComingDeal";
@@ -23,35 +26,11 @@ public class DealActionController implements ActionController {
         return "inComingDeal";
     }
 
-    public DealType getDealType() {
-        return dealType;
+    public DealActionModel getDealActionModel() {
+        return dealActionModel;
     }
 
-    public void setDealType(DealType dealType) {
-        this.dealType = dealType;
-    }
-
-    public Date getDealDate() {
-        return dealDate;
-    }
-
-    public void setDealDate(Date dealDate) {
-        this.dealDate = dealDate;
-    }
-
-    public Client getDealClient() {
-        return dealClient;
-    }
-
-    public void setDealClient(Client dealClient) {
-        this.dealClient = dealClient;
-    }
-
-    public Integer getDealAmount() {
-        return dealAmount;
-    }
-
-    public void setDealAmount(Integer dealAmount) {
-        this.dealAmount = dealAmount;
+    public void setDealActionModel(DealActionModel dealActionModel) {
+        this.dealActionModel = dealActionModel;
     }
 }
