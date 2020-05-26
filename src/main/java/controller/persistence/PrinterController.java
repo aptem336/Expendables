@@ -27,6 +27,6 @@ public class PrinterController implements PersistenceController<Printer> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Printer printer) {
-        return printer.getModel();
+        return printer.getId() + "";
     }
 }

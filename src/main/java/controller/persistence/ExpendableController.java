@@ -27,6 +27,6 @@ public class ExpendableController implements PersistenceController<Expendable> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Expendable expendable) {
-        return expendable.getModel();
+        return expendable.getId() + "";
     }
 }

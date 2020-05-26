@@ -27,6 +27,6 @@ public class MakerController implements PersistenceController<Maker> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Maker maker) {
-        return maker.getName();
+        return maker.getId() + "";
     }
 }

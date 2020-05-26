@@ -27,6 +27,6 @@ public class ClientController implements PersistenceController<Client> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Client client) {
-        return client.getName();
+        return client.getId() + "";
     }
 }

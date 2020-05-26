@@ -27,6 +27,6 @@ public class DealTypeController implements PersistenceController<DealType> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, DealType dealType) {
-        return dealType.getType();
+        return dealType.getId() + "";
     }
 }

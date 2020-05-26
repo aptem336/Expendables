@@ -27,6 +27,6 @@ public class DealController implements PersistenceController<Deal> {
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Deal deal) {
-        return null;
+        return deal.getId() + "";
     }
 }
