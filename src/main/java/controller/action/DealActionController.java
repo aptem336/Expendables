@@ -8,8 +8,12 @@ import javax.inject.Named;
 public class DealActionController implements ActionController {
     private DealType dealType;
 
-    public String redirect() {
-        return "deal";
+    public String toOutComing() {
+        return "outComingDeal";
+    }
+
+    public String toInComing() {
+        return "inComingDeal";
     }
 
     public DealType getDealType() {

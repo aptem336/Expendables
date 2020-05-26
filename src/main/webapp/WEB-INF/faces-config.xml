@@ -6,7 +6,10 @@
   <navigation-rule>
       <from-view-id>/view/balance.xhtml</from-view-id>
       <navigation-case>
-          <to-view-id>/actions/deal.xhtml</to-view-id>
+          <to-view-id>/actions/outComingDeal.xhtml</to-view-id>
+      </navigation-case>
+      <navigation-case>
+          <to-view-id>/actions/inComingDeal.xhtml</to-view-id>
       </navigation-case>
   </navigation-rule>
 </faces-config>
