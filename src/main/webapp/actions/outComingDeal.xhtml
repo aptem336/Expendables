@@ -13,17 +13,10 @@
     <h:form>
         <!--DEL-->
         <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
+        <h:commandScript autorun="true" name="set_type" action="#{dealActionController.deal.setDealType(dealTypeController.all.get(0))}"/>
         <h:panelGrid columns="2">
-            <h:outputText value="Дата выдачи"/>
-            <h:inputText id="date"
-                         value="#{dealActionController.dealActionModel.dealDate}">
-                <f:convertDateTime pattern="yyyy-MM-dd"/>
-                <f:passThroughAttribute name="type" value="date"/>
-                <f:passThroughAttribute name="required" value="true"/>
-            </h:inputText>
-
             <h:outputText value="Кому выдан"/>
-            <h:selectOneMenu value="#{dealActionController.dealActionModel.dealClient}"
+            <h:selectOneMenu value="#{dealActionController.deal.acceptor}"
                              converter="#{clientController}">
                 <f:selectItems value="#{clientController.all}"
                                var="client"
@@ -34,7 +27,7 @@
 
             <h:outputText value="Производитель"/>
             <h:selectOneMenu id="maker"
-                             value="#{dealActionController.dealActionModel.dealMaker}"
+                             value="#{dealActionController.maker}"
                              converter="#{makerController}"
                              onchange="set_maker();">
                 <f:selectItems value="#{makerController.all}"
@@ -47,10 +40,10 @@
 
             <h:outputText value="Модель принтера"/>
             <h:selectOneMenu id="printer"
-                             value="#{dealActionController.dealActionModel.dealPrinter}"
+                             value="#{dealActionController.printer}"
                              converter="#{printerController}"
                              onchange="set_printer()">
-                <f:selectItems value="#{dealActionController.dealActionModel.dealMaker.printers}"
+                <f:selectItems value="#{dealActionController.maker.printers}"
                                var="printer"
                                itemValue="#{printer}"
                                itemLabel="#{printer.model}"/>
@@ -60,9 +53,9 @@
 
             <h:outputText value="Модель картриджа"/>
             <h:selectOneMenu id="expendable"
-                             value="#{dealActionController.dealActionModel.dealExpendable}"
+                             value="#{dealActionController.deal.expendable}"
                              converter="#{expendableController}">
-                <f:selectItems value="#{dealActionController.dealActionModel.dealPrinter.expendables}"
+                <f:selectItems value="#{dealActionController.printer.expendables}"
                                var="expendable"
                                itemValue="#{expendable}"
                                itemLabel="#{expendable.model}"/>
@@ -70,7 +63,7 @@
             </h:selectOneMenu>
 
             <h:outputText value="Количество"/>
-            <h:selectOneMenu value="#{dealActionController.dealActionModel.dealAmount}">
+            <h:selectOneMenu value="#{dealActionController.deal.amount}">
                 <f:selectItem itemValue="1" itemLabel="1"/>
                 <f:selectItem itemValue="2" itemLabel="2"/>
                 <f:selectItem itemValue="3" itemLabel="3"/>

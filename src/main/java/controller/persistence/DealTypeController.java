@@ -1,6 +1,6 @@
 package controller.persistence;
 
-import model.persistence.DealType;
+import model.DealType;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

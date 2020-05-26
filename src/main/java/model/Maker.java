@@ -1,4 +1,4 @@
-package model.persistence;
+package model;
 
 import controller.persistence.MakerController;
 
@@ -16,8 +16,6 @@ public class Maker extends PersistenceModel {
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maker", orphanRemoval = true)
     private List<Printer> printers;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "maker", orphanRemoval = true)
-    private List<Expendable> expendables;
 
     public String getName() {
         return name;
@@ -33,13 +31,5 @@ public class Maker extends PersistenceModel {
 
     public void setPrinters(List<Printer> printers) {
         this.printers = printers;
-    }
-
-    public List<Expendable> getExpendables() {
-        return expendables;
-    }
-
-    public void setExpendables(List<Expendable> expendables) {
-        this.expendables = expendables;
     }
 }

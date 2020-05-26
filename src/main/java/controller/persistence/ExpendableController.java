@@ -1,6 +1,6 @@
 package controller.persistence;
 
-import model.persistence.Expendable;
+import model.Expendable;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

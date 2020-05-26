@@ -1,4 +1,4 @@
-package model.persistence;
+package model;
 
 import controller.persistence.ExpendableController;
 
@@ -11,25 +11,14 @@ import java.util.List;
 public class Expendable extends PersistenceModel {
     @NotNull
     @ManyToOne
-    private Maker maker;
+    private Printer printer;
     @NotNull
     @ManyToOne
     private ExpendableType expendableType;
     @NotNull
-    @ManyToOne
-    private Printer printer;
-    @NotNull
     private String model;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "expendable", orphanRemoval = true)
     private List<Deal> deals;
-
-    public Maker getMaker() {
-        return maker;
-    }
-
-    public void setMaker(Maker maker) {
-        this.maker = maker;
-    }
 
     public ExpendableType getExpendableType() {
         return expendableType;

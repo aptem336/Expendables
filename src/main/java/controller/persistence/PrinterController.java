@@ -1,6 +1,6 @@
 package controller.persistence;
 
-import model.persistence.Printer;
+import model.Printer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

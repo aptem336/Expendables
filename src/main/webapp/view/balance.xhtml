@@ -12,30 +12,30 @@
     <hr/>
     <h:panelGroup layout="block" style="text-align: center">
         <h3>Остаток расходных материалов по факту на складе</h3>
-        <h:dataTable var="balance" value="#{balanceController.data}">
+        <h:dataTable var="expendable" value="#{expendableController.all}">
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Тип"/>
                 </f:facet>
-                <h:outputText value="#{balance.expendableType.type}"/>
+                <h:outputText value="#{expendable.expendableType.type}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Модель принтера"/>
                 </f:facet>
-                <h:outputText value="#{balance.printerModel}"/>
+                <h:outputText value="#{expendable.printer.model}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Модель"/>
                 </f:facet>
-                <h:outputText value="#{balance.expendableModel}"/>
+                <h:outputText value="#{expendable.printer.maker.name}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Остаток"/>
                 </f:facet>
-                <h:outputText value="#{balance.balance}"/>
+                <h:outputText value="#{expendable.balance}"/>
             </h:column>
         </h:dataTable>
         <h:form>

@@ -1,6 +1,6 @@
 package controller.persistence;
 
-import model.persistence.PersistenceModel;
+import model.PersistenceModel;
 
 import javax.faces.convert.Converter;
 import java.util.List;
