@@ -11,7 +11,6 @@
     Выдача расходных материалов
     <hr/>
     <h:form>
-        <!--DEL-->
         <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
         <h:commandScript autorun="true" name="set_type" action="#{dealActionController.deal.setDealType(dealTypeController.all.get(0))}"/>
         <h:panelGrid columns="2">
@@ -76,7 +75,7 @@
 
         <h:panelGroup style="text-align: center; margin: 5px" layout="block">
             <h:commandButton value="Сохранить" action="#{dealActionController.save}"/>
-            <h:button value="Отменить" outcome="balance"/>
+            <h:button value="Отменить" outcome="/view/balance"/>
         </h:panelGroup>
     </h:form>
     <hr/>

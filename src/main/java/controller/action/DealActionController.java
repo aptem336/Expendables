@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 
 @Named
-@ViewScoped//Q
+@ViewScoped
 public class DealActionController implements ActionController, Serializable {
 
     private Deal deal;
@@ -37,9 +37,10 @@ public class DealActionController implements ActionController, Serializable {
 
     @Transactional
     public String save() {
-        deal.getExpendable().getDeals().add(deal);
-        em.merge(deal.getExpendable());
-        return "balance";
+        deal.setSupplier(deal.getAcceptor());//DEL
+        deal.getExpendable().getDeals().add(deal); 
+        em.merge(deal);
+        return "/view/balance?faces-redirect=true";
     }
 
     public Maker getMaker() {
