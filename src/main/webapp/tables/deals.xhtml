@@ -21,27 +21,15 @@
         </h:column>
         <h:column>
             <f:facet name="header">
-                <h:outputText value="supplier"/>
+                <h:outputText value="client"/>
             </f:facet>
-            <h:outputText value="#{deal.supplier.name}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="acceptor"/>
-            </f:facet>
-            <h:outputText value="#{deal.acceptor.name}"/>
+            <h:outputText value="#{deal.client.name}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="amount"/>
             </f:facet>
             <h:outputText value="#{deal.amount}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="type"/>
-            </f:facet>
-            <h:outputText value="#{deal.dealType.type}"/>
         </h:column>
     </h:dataTable>
 </h:body>

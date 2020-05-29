@@ -54,6 +54,6 @@ public class Expendable extends PersistenceModel {
 
     @Transient
     public Integer getBalance() {
-        return getDeals().stream().mapToInt(deal -> deal.getAmount() * deal.getDealType().getId() == 0 ? 1 : -1).sum();
+        return getDeals().stream().mapToInt(Deal::getAmount).sum();
     }
 }

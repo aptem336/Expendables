@@ -6,24 +6,29 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @NamedQuery(name = DealController.getAllNamedQuery, query = "SELECT t FROM Deal t")
 public class Deal extends PersistenceModel {
     @NotNull
+    private Date date;
+    @NotNull
     @ManyToOne
     private Expendable expendable;
     @NotNull
     @ManyToOne
-    private Client supplier;
-    @NotNull
-    @ManyToOne
-    private Client acceptor;
+    private Client client;
     @NotNull
     private Integer amount;
-    @NotNull
-    @ManyToOne
-    private DealType dealType;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public Expendable getExpendable() {
         return expendable;
@@ -33,20 +38,12 @@ public class Deal extends PersistenceModel {
         this.expendable = expendable;
     }
 
-    public Client getSupplier() {
-        return supplier;
+    public Client getClient() {
+        return client;
     }
 
-    public void setSupplier(Client supplier) {
-        this.supplier = supplier;
-    }
-
-    public Client getAcceptor() {
-        return acceptor;
-    }
-
-    public void setAcceptor(Client acceptor) {
-        this.acceptor = acceptor;
+    public void setClient(Client acceptor) {
+        this.client = acceptor;
     }
 
     public Integer getAmount() {
@@ -55,13 +52,5 @@ public class Deal extends PersistenceModel {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-
-    public DealType getDealType() {
-        return dealType;
-    }
-
-    public void setDealType(DealType dealType) {
-        this.dealType = dealType;
     }
 }

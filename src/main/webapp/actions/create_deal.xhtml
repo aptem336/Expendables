@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<title>Расходные материалы "Сбербанк сервис"</title>
+<h:outputStylesheet library="css" name="main.css"/>
+<h:head/>
+<h:body>
+    Выдача расходных материалов
+    <hr/>
+    <h:form>
+        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
+        <h:panelGrid columns="2">
+            <h:outputText value="Дата"/>
+            <h:inputText value="#{dealActionController.deal.date}">
+                <f:passThroughAttribute name="required" value="true"/>
+                <f:passThroughAttribute name="type" value="date"/>
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText>
+            <h:outputText value="Клиент"/>
+            <h:selectOneMenu value="#{dealActionController.deal.client}"
+                             converter="#{clientController}">
+                <f:selectItems value="#{clientController.all}"
+                               var="client"
+                               itemValue="#{client}"
+                               itemLabel="#{client.name}"/>
+                <f:passThroughAttribute name="required" value="true"/>
+            </h:selectOneMenu>
+            <h:outputText value="Количество"/>
+            <h:selectOneMenu value="#{dealActionController.deal.amount}">
+                <f:selectItem itemValue="1" itemLabel="1"/>
+                <f:selectItem itemValue="2" itemLabel="2"/>
+                <f:selectItem itemValue="3" itemLabel="3"/>
+                <f:passThroughAttribute name="required" value="true"/>
+                <f:convertNumber/>
+            </h:selectOneMenu>
+        </h:panelGrid>
+
+        <h:panelGroup style="text-align: center; margin: 5px" layout="block">
+            <h:commandButton value="Сохранить" action="#{dealActionController.save}"/>
+            <h:button value="Отменить" outcome="/view/balance"/>
+        </h:panelGroup>
+    </h:form>
+    <hr/>
+</h:body>
+</html>

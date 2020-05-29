@@ -6,18 +6,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h:dataTable var="maker" value="#{makerController.all}" border="1">
+    <h:dataTable var="type" value="#{makerController.all}" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="id"/>
             </f:facet>
-            <h:outputText value="#{maker.id}"/>
+            <h:outputText value="#{type.id}"/>
         </h:column>
         <h:column>
             <f:facet name="header">
                 <h:outputText value="name"/>
             </f:facet>
-            <h:outputText value="#{maker.name}"/>
+            <h:outputText value="#{type.name}"/>
         </h:column>
     </h:dataTable>
 </h:body>
