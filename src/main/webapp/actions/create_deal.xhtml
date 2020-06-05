@@ -33,7 +33,7 @@
             <h:selectOneMenu id="type"
                              value="#{expendableFilter.expendableType}"
                              converter="#{expendableTypeController}">
-                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{expendableFilter.filterExpendableType(expendableTypeController.all)}"
                                var="expendableType"
                                itemValue="#{expendableType}"
@@ -44,7 +44,7 @@
             <h:selectOneMenu id="maker"
                              value="#{expendableFilter.maker}"
                              converter="#{makerController}">
-                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{expendableFilter.filterMakers(makerController.all)}"
                                var="maker"
                                itemValue="#{maker}"
@@ -55,7 +55,7 @@
             <h:selectOneMenu id="printer"
                              value="#{expendableFilter.printer}"
                              converter="#{printerController}">
-                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{expendableFilter.filterPrinters(printerController.all)}"
                                var="printer"
                                itemValue="#{printer}"
@@ -66,7 +66,7 @@
             <h:selectOneMenu id="expendable"
                              value="#{dealActionController.deal.expendable}"
                              converter="#{expendableController}">
-                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{expendableFilter.filterExpendables(expendableController.all)}"
                                var="expendable"
                                itemValue="#{expendable}"

@@ -32,6 +32,8 @@ public class DealActionController implements ActionController, Serializable {
 
     @Transactional
     public String save() {
+        deal.getExpendable().getDeals().add(deal);
+        em.merge(deal.getExpendable());
         em.merge(deal);
         return "/view/balance?faces-redirect=true";
     }
