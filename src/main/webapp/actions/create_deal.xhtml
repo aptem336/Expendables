@@ -11,6 +11,9 @@
     Выдача расходных материалов
     <hr/>
     <h:form>
+        <f:metadata>
+            <f:viewParam name="sign" value="#{dealActionController.sign}" />
+        </f:metadata>
         <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
         <h:panelGrid columns="2">
             <h:outputText value="Дата"/>

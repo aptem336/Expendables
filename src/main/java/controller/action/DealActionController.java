@@ -15,7 +15,16 @@ import java.io.Serializable;
 public class DealActionController implements ActionController, Serializable {
     @Inject
     private EntityManager em;
+    private Integer sign;
     private Deal deal;
+
+    public Integer getSign() {
+        return sign;
+    }
+
+    public void setSign(Integer sign) {
+        this.sign = sign;
+    }
 
     @PostConstruct
     private void postConstruct() {
@@ -32,9 +41,9 @@ public class DealActionController implements ActionController, Serializable {
 
     @Transactional
     public String save() {
+        deal.setAmount(deal.getAmount() * sign);
         deal.getExpendable().getDeals().add(deal);
         em.merge(deal.getExpendable());
-        em.merge(deal);
         return "/view/balance?faces-redirect=true";
     }
 }
