@@ -28,6 +28,52 @@
                                itemLabel="#{client.name}"/>
                 <f:passThroughAttribute name="required" value="true"/>
             </h:selectOneMenu>
+
+            <h:outputText value="Тип"/>
+            <h:selectOneMenu id="type"
+                             value="#{expendableFilter.expendableType}"
+                             converter="#{expendableTypeController}">
+                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItems value="#{expendableFilter.filterExpendableType(expendableTypeController.all)}"
+                               var="expendableType"
+                               itemValue="#{expendableType}"
+                               itemLabel="#{expendableType.type}"/>
+                <f:ajax render="type maker printer expendable"/>
+            </h:selectOneMenu>
+            <h:outputText value="Производитель"/>
+            <h:selectOneMenu id="maker"
+                             value="#{expendableFilter.maker}"
+                             converter="#{makerController}">
+                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItems value="#{expendableFilter.filterMakers(makerController.all)}"
+                               var="maker"
+                               itemValue="#{maker}"
+                               itemLabel="#{maker.name}"/>
+                <f:ajax render="type maker printer expendable"/>
+            </h:selectOneMenu>
+            <h:outputText value="Принтер"/>
+            <h:selectOneMenu id="printer"
+                             value="#{expendableFilter.printer}"
+                             converter="#{printerController}">
+                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItems value="#{expendableFilter.filterPrinters(printerController.all)}"
+                               var="printer"
+                               itemValue="#{printer}"
+                               itemLabel="#{printer.model}"/>
+                <f:ajax render="type maker printer expendable"/>
+            </h:selectOneMenu>
+            <h:outputText value="Картридж"/>
+            <h:selectOneMenu id="expendable"
+                             value="#{dealActionController.deal.expendable}"
+                             converter="#{expendableController}">
+                <f:selectItem itemValue="${null}" itemLabel="---"/>
+                <f:selectItems value="#{expendableFilter.filterExpendables(expendableController.all)}"
+                               var="expendable"
+                               itemValue="#{expendable}"
+                               itemLabel="#{expendable.model}"/>
+                <f:ajax render="type maker printer expendable"/>
+                <f:passThroughAttribute name="required" value="true"/>
+            </h:selectOneMenu>
             <h:outputText value="Количество"/>
             <h:selectOneMenu value="#{dealActionController.deal.amount}">
                 <f:selectItem itemValue="1" itemLabel="1"/>
@@ -37,7 +83,6 @@
                 <f:convertNumber/>
             </h:selectOneMenu>
         </h:panelGrid>
-
         <h:panelGroup style="text-align: center; margin: 5px" layout="block">
             <h:commandButton value="Сохранить" action="#{dealActionController.save}"/>
             <h:button value="Отменить" outcome="/view/balance"/>

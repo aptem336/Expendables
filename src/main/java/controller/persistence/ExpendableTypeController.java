@@ -21,12 +21,12 @@ public class ExpendableTypeController implements PersistenceController<Expendabl
     }
 
     @Override
-    public ExpendableType getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
-        return null;
+    public ExpendableType getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
+        return em.find(ExpendableType.class, id);
     }
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, ExpendableType expendableType) {
-        return expendableType.getId() + "";
+        return expendableType == null ? "" : expendableType.getId() + "";
     }
 }

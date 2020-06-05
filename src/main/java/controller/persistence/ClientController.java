@@ -22,7 +22,7 @@ public class ClientController implements PersistenceController<Client> {
 
     @Override
     public Client getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
-        return em.find(Client.class, Integer.parseInt(id));
+        return em.find(Client.class, id);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ExpendableController implements PersistenceController<Expendable> {
 
     @Override
     public Expendable getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
-        return em.find(Expendable.class, Integer.parseInt(id));
+        return em.find(Expendable.class, id);
     }
 
     @Override

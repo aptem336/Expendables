@@ -22,7 +22,7 @@ public class MakerController implements PersistenceController<Maker> {
 
     @Override
     public Maker getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
-        return em.find(Maker.class, Integer.parseInt(id));
+        return em.find(Maker.class, id);
     }
 
     @Override

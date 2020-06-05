@@ -8,9 +8,9 @@ import java.util.Objects;
 public abstract class PersistenceModel {
     @Id
     @GeneratedValue
-    private Integer id;
+    private String id;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

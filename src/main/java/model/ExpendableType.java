@@ -2,6 +2,7 @@ package model;
 
 import controller.persistence.ExpendableTypeController;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -13,7 +14,7 @@ import java.util.List;
 public class ExpendableType extends PersistenceModel {
     @NotNull
     private String type;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "expendableType", orphanRemoval = true)
     private List<Expendable> expendables;
 
     public String getType() {

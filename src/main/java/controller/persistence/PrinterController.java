@@ -22,7 +22,7 @@ public class PrinterController implements PersistenceController<Printer> {
 
     @Override
     public Printer getAsObject(FacesContext facesContext, UIComponent uiComponent, String id) {
-        return em.find(Printer.class, Integer.parseInt(id));
+        return em.find(Printer.class, id);
     }
 
     @Override
