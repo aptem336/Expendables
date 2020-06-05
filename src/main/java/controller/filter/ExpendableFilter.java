@@ -19,6 +19,7 @@ public class ExpendableFilter implements Serializable {
     private ExpendableType expendableType;
     private Maker maker;
     private Printer printer;
+    private Expendable expendable;
 
     public ExpendableType getExpendableType() {
         return expendableType;
@@ -71,5 +72,13 @@ public class ExpendableFilter implements Serializable {
             expendableStream = expendableStream.filter(expendable -> expendable.getPrinter().getMaker().equals(maker));
         }
         return expendableStream.collect(Collectors.toList());
+    }
+
+    public Expendable getExpendable() {
+        return expendable;
+    }
+
+    public void setExpendable(Expendable expendable) {
+        this.expendable = expendable;
     }
 }

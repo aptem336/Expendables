@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<title>Расходные материалы "Сбербанк сервис"</title>
+<h:outputStylesheet library="css" name="main.css"/>
+<h:head/>
+<h:body>
+    Поиск по складу
+    <hr/>
+    <h:form>
+        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
+        <h:panelGrid columns="2">
+            <h:panelGrid columns="2">
+                <h:outputText value="Тип"/>
+                <h:selectOneMenu id="type"
+                                 value="#{expendableFilter.expendableType}"
+                                 converter="#{expendableTypeController}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{expendableFilter.filterExpendableType(expendableTypeController.all)}"
+                                   var="expendableType"
+                                   itemValue="#{expendableType}"
+                                   itemLabel="#{expendableType.type}"/>
+                    <f:ajax render="type maker printer expendable balance"/>
+                </h:selectOneMenu>
+                <h:outputText value="Производитель"/>
+                <h:selectOneMenu id="maker"
+                                 value="#{expendableFilter.maker}"
+                                 converter="#{makerController}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{expendableFilter.filterMakers(makerController.all)}"
+                                   var="maker"
+                                   itemValue="#{maker}"
+                                   itemLabel="#{maker.name}"/>
+                    <f:ajax render="type maker printer expendable balance"/>
+                </h:selectOneMenu>
+                <h:outputText value="Принтер"/>
+                <h:selectOneMenu id="printer"
+                                 value="#{expendableFilter.printer}"
+                                 converter="#{printerController}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{expendableFilter.filterPrinters(printerController.all)}"
+                                   var="printer"
+                                   itemValue="#{printer}"
+                                   itemLabel="#{printer.model}"/>
+                    <f:ajax render="type maker printer expendable balance"/>
+                </h:selectOneMenu>
+                <h:outputText value="Картридж"/>
+                <h:selectOneMenu id="expendable"
+                                 value="#{expendableFilter.expendable}"
+                                 converter="#{expendableController}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{expendableFilter.filterExpendables(expendableController.all)}"
+                                   var="expendable"
+                                   itemValue="#{expendable}"
+                                   itemLabel="#{expendable.model}"/>
+                    <f:ajax render="type maker printer expendable balance"/>
+                    <f:passThroughAttribute name="required" value="true"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <h:panelGroup>
+                <h:outputText value="Итог:"/>
+                <h:outputText id="balance"
+                              value="${expendableFilter.expendable.balance}"/>
+            </h:panelGroup>
+        </h:panelGrid>
+        <h:panelGroup style="text-align: center; margin: 5px" layout="block">
+            <h:button value="Назад" outcome="/view/balance"/>
+        </h:panelGroup>
+    </h:form>
+    <hr/>
+</h:body>
+</html>
