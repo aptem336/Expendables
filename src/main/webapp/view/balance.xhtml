@@ -44,11 +44,11 @@
         <h:form>
             <h:button value="Выдача расходных материалов"
                       outcome="/actions/create_deal?faces-redirect=true&amp;includeViewParams=true">
-                <f:param name="sign" value="1"/>
+                <f:param name="sign" value="-1"/>
             </h:button>
             <h:button value="Принятие расходных материалов"
                       outcome="/actions/create_deal?faces-redirect=true&amp;includeViewParams=true">
-                <f:param name="sign" value="-1"/>
+                <f:param name="sign" value="1"/>
             </h:button>
             <br/>
             <h:button value="Поиск по складу" outcome="/view/balance_search?faces-redirect=true"/>

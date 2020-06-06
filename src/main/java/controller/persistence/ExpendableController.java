@@ -32,6 +32,6 @@ public class ExpendableController implements PersistenceController<Expendable> {
     }
 
     public List<Expendable> getBalanced() {
-        return getAll().stream().filter(expendable -> expendable.getBalance() != 0).collect(Collectors.toList());
+        return getAll().stream().filter(expendable -> expendable.getBalance() > 0).collect(Collectors.toList());
     }
 }

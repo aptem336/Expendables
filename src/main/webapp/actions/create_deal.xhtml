@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xml:lang="en" lang="en"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <title>Расходные материалы "Сбербанк сервис"</title>
 <h:outputStylesheet library="css" name="main.css"/>
 <h:head/>
@@ -23,8 +23,10 @@
                 <f:passThroughAttribute name="type" value="date"/>
                 <f:convertDateTime pattern="yyyy-MM-dd"/>
             </h:inputText>
-            <h:outputText value="Клиент"/>
-            <h:selectOneMenu value="#{expendableFilter.client_name}">
+            <h:outputText rendered="#{dealActionController.sign == -1}"
+                          value="Клиент"/>
+            <h:selectOneMenu rendered="#{dealActionController.sign == -1}"
+                             value="#{expendableFilter.client_name}">
                 <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{clientController.all}"
                                var="client"
@@ -32,8 +34,10 @@
                                itemLabel="#{client.name}"/>
                 <f:ajax render="room"/>
             </h:selectOneMenu>
-            <h:outputText value="Кабинет"/>
-            <h:selectOneMenu id="room"
+            <h:outputText rendered="#{dealActionController.sign == -1}"
+                          value="Кабинет"/>
+            <h:selectOneMenu rendered="#{dealActionController.sign == -1}"
+                             id="room"
                              value="#{dealActionController.deal.client}"
                              converter="#{clientController}">
                 <f:selectItem itemValue="${null}" itemLabel=""/>
@@ -83,21 +87,22 @@
                              value="#{dealActionController.deal.expendable}"
                              converter="#{expendableController}">
                 <f:selectItem itemValue="${null}" itemLabel=""/>
-                <f:selectItems value="#{expendableFilter.filterExpendables(expendableController.all)}"
+                <f:selectItems value="#{expendableFilter.filterExpendables(dealActionController.sign == 1 ? expendableController.all : expendableController.balanced)}"
                                var="expendable"
                                itemValue="#{expendable}"
                                itemLabel="#{expendable.model}"/>
-                <f:ajax render="type maker printer expendable"/>
+                <f:ajax render="type maker printer expendable amount"/>
                 <f:passThroughAttribute name="required" value="true"/>
             </h:selectOneMenu>
             <h:outputText value="Количество"/>
-            <h:selectOneMenu value="#{dealActionController.deal.amount}">
-                <f:selectItem itemValue="1" itemLabel="1"/>
-                <f:selectItem itemValue="2" itemLabel="2"/>
-                <f:selectItem itemValue="3" itemLabel="3"/>
+            <h:inputText id="amount"
+                         value="#{dealActionController.deal.amount}">
+                <f:passThroughAttribute name="type" value="number"/>
+                <f:passThroughAttribute name="min" value="1"/>
+                <f:passThroughAttribute name="max" value="#{dealActionController.sign == 1 ? 100 : ((dealActionController.deal.expendable == null || dealActionController.deal.expendable.balance > 3) ? 3 : dealActionController.deal.expendable.balance)}"/>
                 <f:passThroughAttribute name="required" value="true"/>
                 <f:convertNumber/>
-            </h:selectOneMenu>
+            </h:inputText>
         </h:panelGrid>
         <h:panelGroup style="text-align: center; margin: 5px" layout="block">
             <h:commandButton value="Сохранить" action="#{dealActionController.save}"/>

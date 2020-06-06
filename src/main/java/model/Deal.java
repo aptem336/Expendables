@@ -16,7 +16,6 @@ public class Deal extends PersistenceModel {
     @NotNull
     @ManyToOne
     private Expendable expendable;
-    @NotNull
     @ManyToOne
     private Client client;
     @NotNull
