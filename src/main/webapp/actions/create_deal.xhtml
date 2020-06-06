@@ -8,11 +8,12 @@
 <h:outputStylesheet library="css" name="main.css"/>
 <h:head/>
 <h:body>
-    Выдача расходных материалов
+    <h:graphicImage library="img" name="logo.png"/>
     <hr/>
+    <h3>Выдача/Принятие расходных материалов</h3>
     <h:form>
         <f:metadata>
-            <f:viewParam name="sign" value="#{dealActionController.sign}" />
+            <f:viewParam name="sign" value="#{dealActionController.sign}"/>
         </f:metadata>
         <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
         <h:panelGrid columns="2">
@@ -23,13 +24,25 @@
                 <f:convertDateTime pattern="yyyy-MM-dd"/>
             </h:inputText>
             <h:outputText value="Клиент"/>
-            <h:selectOneMenu value="#{dealActionController.deal.client}"
-                             converter="#{clientController}">
+            <h:selectOneMenu value="#{expendableFilter.client_name}">
+                <f:selectItem itemValue="${null}" itemLabel=""/>
                 <f:selectItems value="#{clientController.all}"
                                var="client"
-                               itemValue="#{client}"
+                               itemValue="#{client.name}"
                                itemLabel="#{client.name}"/>
+                <f:ajax render="room"/>
+            </h:selectOneMenu>
+            <h:outputText value="Кабинет"/>
+            <h:selectOneMenu id="room"
+                             value="#{dealActionController.deal.client}"
+                             converter="#{clientController}">
+                <f:selectItem itemValue="${null}" itemLabel=""/>
+                <f:selectItems value="#{expendableFilter.filterClient(clientController.all)}"
+                               var="client"
+                               itemValue="#{client}"
+                               itemLabel="#{client.room}"/>
                 <f:passThroughAttribute name="required" value="true"/>
+                <f:ajax render="room"/>
             </h:selectOneMenu>
 
             <h:outputText value="Тип"/>

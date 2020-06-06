@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<title>Расходные материалы "Сбербанк сервис"</title>
+<h:outputStylesheet library="css" name="main.css"/>
+<h:head/>
+<h:body>
+    <h:graphicImage library="img" name="logo.png"/>
+    <hr/>
+    <h3>Поиск по транзакциям</h3>
+    <h:form>
+        <f:metadata>
+            <f:viewParam name="sign" value="#{dealActionController.sign}"/>
+        </f:metadata>
+        <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange" infoStyle="color: blue"/>
+        <h:panelGrid columns="1">
+            <h:panelGrid columns="2">
+                <h:outputText value="Дата (c)"/>
+                <h:inputText value="#{expendableFilter.dateFrom}">
+                    <f:passThroughAttribute name="type" value="date"/>
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                    <f:ajax render="deal"/>
+                </h:inputText>
+                <h:outputText value="Дата (по)"/>
+                <h:inputText value="#{expendableFilter.dateTo}">
+                    <f:passThroughAttribute name="type" value="date"/>
+                    <f:convertDateTime pattern="yyyy-MM-dd"/>
+                    <f:ajax render="deal"/>
+                </h:inputText>
+                <h:outputText value="Клиент"/>
+                <h:selectOneMenu value="#{expendableFilter.client_name}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{clientController.all}"
+                                   var="client"
+                                   itemValue="#{client.name}"
+                                   itemLabel="#{client.name}"/>
+                    <f:ajax render="room deal"/>
+                </h:selectOneMenu>
+                <h:outputText value="Кабинет"/>
+                <h:selectOneMenu id="room"
+                                 value="#{expendableFilter.client}"
+                                 converter="#{clientController}">
+                    <f:selectItem itemValue="${null}" itemLabel=""/>
+                    <f:selectItems value="#{expendableFilter.filterClient(clientController.all)}"
+                                   var="client"
+                                   itemValue="#{client}"
+                                   itemLabel="#{client.room}"/>
+                    <f:ajax render="room deal"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <h:dataTable style="height: 170px"
+                    id="deal"
+                         var="deal"
+                         value="${expendableFilter.filterDeals(dealController.all)}">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Отдел"/>
+                    </f:facet>
+                    <h:outputText value="${deal.client.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Кабинет"/>
+                    </f:facet>
+                    <h:outputText value="${deal.client.room}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Картридж"/>
+                    </f:facet>
+                    <h:outputText value="${deal.expendable.model}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Количество"/>
+                    </f:facet>
+                    <h:outputText value="${deal.amount}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Дата"/>
+                    </f:facet>
+                    <h:outputText value="${deal.date}">
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                    </h:outputText>
+                </h:column>
+            </h:dataTable>
+        </h:panelGrid>
+        <h:panelGroup style="text-align: center; margin: 5px" layout="block">
+            <h:button value="Назад" outcome="/view/balance"/>
+        </h:panelGroup>
+    </h:form>
+    <hr/>
+</h:body>
+</html>

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Named
 public class ExpendableController implements PersistenceController<Expendable> {
@@ -28,5 +29,9 @@ public class ExpendableController implements PersistenceController<Expendable> {
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Expendable expendable) {
         return expendable == null ? null : expendable.getId() + "";
+    }
+
+    public List<Expendable> getBalanced() {
+        return getAll().stream().filter(expendable -> expendable.getBalance() != 0).collect(Collectors.toList());
     }
 }

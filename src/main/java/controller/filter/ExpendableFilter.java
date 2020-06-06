@@ -1,13 +1,13 @@
 package controller.filter;
 
-import model.Expendable;
-import model.ExpendableType;
-import model.Maker;
-import model.Printer;
+import model.*;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,10 +16,29 @@ import java.util.stream.Stream;
 @ViewScoped
 public class ExpendableFilter implements Serializable {
 
+    private String client_name;
+    private Client client;
     private ExpendableType expendableType;
     private Maker maker;
     private Printer printer;
     private Expendable expendable;
+    private Date dateFrom;
+    private Date dateTo;
+
+    public String getClient_name() {
+        return client_name;
+    }
+
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
+    }
+
+    public List<Client> filterClient(List<Client> clients) {
+        if (client_name != null) {
+            return clients.stream().filter(client -> client.getName().equals(client_name)).collect(Collectors.toList());
+        }
+        return clients;
+    }
 
     public ExpendableType getExpendableType() {
         return expendableType;
@@ -80,5 +99,43 @@ public class ExpendableFilter implements Serializable {
 
     public void setExpendable(Expendable expendable) {
         this.expendable = expendable;
+    }
+
+    public Date getDateFrom() {
+        return dateFrom;
+    }
+
+    public void setDateFrom(Date dateFrom) {
+        this.dateFrom = dateFrom;
+    }
+
+    public Date getDateTo() {
+        return dateTo;
+    }
+
+    public void setDateTo(Date dateTo) {
+        this.dateTo = dateTo;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public List<Deal> filterDeals(List<Deal> deals) {
+        Stream<Deal> dealStream = deals.stream();
+        if (dateFrom != null) {
+            dealStream = dealStream.filter(deal -> deal.getDate().after(dateFrom));
+        }
+        if (dateTo != null) {
+            dealStream = dealStream.filter(deal -> deal.getDate().before(dateTo));
+        }
+        if (client != null) {
+            dealStream = dealStream.filter(deal -> deal.getClient().equals(client));
+        }
+        return dealStream.collect(Collectors.toList());
     }
 }

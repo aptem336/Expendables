@@ -1,17 +1,30 @@
 body {
+    color: #0A2D41;
     font-family: Calibri, serif;
     font-size: 18px;
-}
-
-hr {
-    border-width: 2px;
+    text-align: center;
 }
 
 table {
-    border: 1px solid black;
-    margin: auto;
+    border: 2px groove lightseagreen;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    overflow: auto;
+    margin: auto auto 10px;
+    padding: 10px;
 }
 
 select {
     width: 100%;
+}
+
+input[type=button],input[type=submit] {
+    background: #18712f;
+    color: white;
+    border-radius: 2px;
+    margin: 2px;
+    cursor: pointer;
+    padding: 2px;
+    font-weight: bold;
 }
