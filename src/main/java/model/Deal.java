@@ -1,6 +1,6 @@
 package model;
 
-import controller.persistence.DateConverter;
+import controller.DateConverter;
 import controller.persistence.DealController;
 
 import javax.persistence.*;
@@ -14,7 +14,7 @@ public class Deal extends PersistenceModel {
     @Convert(converter = DateConverter.class)
     private Date date;
     @NotNull
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Expendable expendable;
     @ManyToOne
     private Client client;

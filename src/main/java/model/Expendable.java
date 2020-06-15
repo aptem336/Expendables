@@ -9,11 +9,9 @@ import java.util.List;
 @Entity
 @NamedQuery(name = ExpendableController.getAllNamedQuery, query = "SELECT e FROM Expendable e")
 public class Expendable extends PersistenceModel {
-    @NotNull
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Printer printer;
-    @NotNull
-    @ManyToOne
+    @ManyToOne(optional = false)
     private ExpendableType expendableType;
     @NotNull
     private String model;
