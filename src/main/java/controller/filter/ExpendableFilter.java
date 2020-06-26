@@ -5,8 +5,10 @@ import model.*;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -89,6 +91,25 @@ public class ExpendableFilter implements Serializable {
             expendableStream = expendableStream.filter(expendable -> expendable.getPrinter().getMaker().equals(maker));
         }
         return expendableStream.collect(Collectors.toList());
+    }
+
+    public List<Client> filterClientWithDeals(List<Client> clients) {
+        return clients.stream().filter(client -> !client.getDeals().isEmpty()).collect(Collectors.toList());
+    }
+
+    public List<Deal> groupDeals(List<Deal> deals) {
+        Stream<Deal> dealStream = deals.stream();
+        Set<Expendable> expendables = dealStream.map(Deal::getExpendable).collect(Collectors.toSet());
+        List<Deal> expendableDeal = new ArrayList<>();
+        expendables.forEach(expendable -> {
+            Deal deal = new Deal();
+            deal.setExpendable(expendable);
+            deal.setAmount(deals.stream()
+                    .filter(d -> d.getExpendable().equals(expendable))
+                    .mapToInt(Deal::getAmount).sum());
+            expendableDeal.add(deal);
+        });
+        return expendableDeal;
     }
 
     public Expendable getExpendable() {

@@ -44,6 +44,10 @@ public class DealActionController implements ActionController, Serializable {
         deal.setAmount(deal.getAmount() * sign);
         deal.getExpendable().getDeals().add(deal);
         em.merge(deal.getExpendable());
+        if (deal.getClient() != null) {
+            deal.getClient().getDeals().add(deal);
+            em.merge(deal.getClient());
+        }
         return "/view/balance?faces-redirect=true";
     }
 }
